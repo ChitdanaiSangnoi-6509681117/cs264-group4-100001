@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api")
@@ -25,5 +27,19 @@ public class TeacherAppointmentController {
             //return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return null;
+    }
+
+    @GetMapping("/teacherAppointment")
+    public ResponseEntity<List<TeacherAppointment>> findTeacherAppointmentAll() {
+        try {
+            List<TeacherAppointment> teacherAppointments = teacherAppointmentRepository.findTeacherAppointmentAll();
+
+            if (teacherAppointments.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(teacherAppointments, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
