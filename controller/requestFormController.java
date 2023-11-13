@@ -20,11 +20,11 @@ public class requestFormController{
         try{
             if(Objects.equals(requestForm.getYear(), "2566")){
                 requestFormRepository.saveRequestForm(new RequestForm(requestForm.getTerm(),requestForm.getYear()
-                        ,requestForm.getPaidMonth(),requestForm.getPaidYear()));
+                        ,requestForm.getPaidMonth(),requestForm.getPaidYear(),requestForm.getFile()));
                 return new ResponseEntity<String>("student was created successfully.", HttpStatus.CREATED);
             }
             else if(!Objects.equals(requestForm.getReason(),"")){
-                requestFormRepository.saveRequestForm(new RequestForm(requestForm.getReason()));
+                requestFormRepository.saveRequestForm(new RequestForm(requestForm.getReason(),requestForm.getFile()));
                 return new ResponseEntity<String>("student was created successfully.", HttpStatus.CREATED);
             }
 

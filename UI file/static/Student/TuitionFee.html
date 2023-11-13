@@ -152,8 +152,11 @@
         if (term === " " || paidMonth === " " || paidYear === " ") {
         return;
     }
-    var data = { term,year, paidMonth, paidYear };
-    const jsonData = JSON.stringify(data);
+
+    //var data = { term,year, paidMonth, paidYear };
+    var jsonData = JSON.parse(localStorage.getItem('jsonData'));
+    var data = { ...jsonData, term,year, paidMonth, paidYear };
+    mergedData = JSON.stringify(data);
 
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "/api/requestForm", true);
@@ -162,12 +165,11 @@
         if (xhr.readyState === 4 && (xhr.status === 200 || xhr.status === 201)) {
             console.log("Data sent successfully");
             window.location.href = 'save_complete.html';
-        } else if (xhr.readyState === 4 && (xhr.status !== 200 && xhr.status === 201)) {
+        } else if (xhr.readyState === 4 && (xhr.status !== 200 && xhr.status !== 201)) {
             console.error("An error occurred sending data.");
-            window.location.href = 'save_complete.html';
         }
     }//function xhr
-    xhr.send(jsonData);
+    xhr.send(mergedData);
     }
 </script>
 

@@ -2,27 +2,32 @@ package cs.tu.studentSprint1.Model;
 
 public class RequestForm {
 
-    String reason;
-    String term;
-    String year;
-    String paidMonth;
-    String paidYear;
-    String type;
+    private String reason;
+    private String term;
+    private String year;
+    private String paidMonth;
+    private String paidYear;
+    private String type;
+    private FileInfo[] file = new FileInfo[5];
+
+
 ////////request add Withdraw
 
 
 ////////request retire
 
     public RequestForm(){}
-    public RequestForm(String reason){
+    public RequestForm(String reason,FileInfo[] file){
         setReason(reason);
+        setFile(file);
         setType("other");
     }
-    public RequestForm(String term,String year, String paidMonth, String paidYear){
+    public RequestForm(String term,String year, String paidMonth, String paidYear,FileInfo[] file){
         setTerm(term);
         setYear(year);
         setPaidMonth(paidMonth);
         setPaidYear(paidYear);
+        setFile(file);
         setType("tuitionFee");
     }
 
@@ -71,5 +76,12 @@ public class RequestForm {
 
     public void setType(String type) {
         this.type = type;
+    }
+    public FileInfo[] getFile() {
+        return file;
+    }
+
+    public void setFile(FileInfo[] file) {
+        this.file = file;
     }
 }
