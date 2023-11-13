@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" style="font-family: 'Noto Sans Thai', sans-serif;">
+  <!--Latest compiled and minified CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!--Latest compiled JavaScript-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--add CSS file-->
+  <link href="style_main.css" rel="stylesheet"/>
+
+  <!--font thai-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt&family=Roboto&display=swap" rel="stylesheet">
+
+  <title>สำนักทะเบียน</title>
+</head>
+<body>
+<!--Head of web page-->
+<nav id="topSidebar" class="w-100 p-1">
+  <img src="Emblem_of_Thammasat_University.png" width="50" height="50" />
+  <label>THAMMASAT UNIVERSITY</label>
+</nav>
+<!--left sidebar-->
+<nav id="leftSidebar" class="h-100 d-inline-block">
+  <button class=" button_leftside" id="student_personal_information" type="button" onclick="window.location.href='Personal_information.html'">ประวัตินักศึกษา</button><br>
+  <button class=" button_leftside" id="student_notifications" type="button">การแจ้งเตือน</button><br>
+  <button class=" button_leftside" id="track_request_status" type="button">ติดตามสถานะคำร้อง</button><br>
+  <button class=" button_leftside" id="submit_a_complaint" type="button">ยื่นคำร้อง</button><br>
+  <button class=" button_leftside" id="appointment_of_advisor" type="button">การนัดหมายอาจารย์ที่ปรึกษา</button><br>
+  <button class=" button_leftside" id="pay_a_fine" type="button">ชำระค่าปรับ</button><br>
+  <button class="button_leftside" id="log_out" type="button">ออกจากระบบ</button>
+</nav>
+<nav class="body">
+  <label id="headBody">ยื่นคำร้อง</label><br>
+  <div class="text" id="generalRequest">ยื่นคำร้องทั่วไป</div><br>
+  <button class="button_select" id="tuitionFeeRequest"onclick="window.location.href='TuitionFee.html'"><div class="text-inside">คำร้องผ่อนผันค่าบำรุงการศึกษา</div></button><br>
+  <button class="button_select" id="courseRequest"onclick="window.location.href='Withdrawal.html'"><div class="text-inside">คำร้องขอเพิ่ม-ถอนรายวิชาล่าช้า</div></button><br>
+  <button class="button_select" id="withdrawRequest"onclick="window.location.href='resignation.html'"><div class="text-inside">คำร้องขอลาออก</div></button><br>
+  <button class="button_select" id="otherRequest"onclick="window.location.href='request_other.html'"><div class="text-inside">คำร้องอื่นๆ</div></button><br><br>
+  <div class="text" id="otherRequests">ยื่นคำร้องอื่นๆ</div><br>
+  <button class="button_select" id="advisorAppointmentRequest"><div class="text-inside">คำร้องขอนัดหมายอาจารย์ที่ปรึกษา</div></button><br>
+  <button class="back" onclick="window.location.href='index.html'">กลับสู่หน้าแรก</button>
+</nav>
+</body>
+</html>
