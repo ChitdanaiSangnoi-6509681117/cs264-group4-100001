@@ -11,6 +11,7 @@ body,html{
     color: #333; /* ตัวอักษรสีดำ*/
     width: 100%;
 }
+
 /*----------Header แถบชื่อมหาลัยข้างบน-------------*/
 #topSidebar{
     text-align: center;
@@ -62,6 +63,7 @@ body,html{
 .body{
     margin-top: 50px;
 }
+
 /*หัวเรื่องในส่วนของ body */
 #headBody{
     margin-left: 300px;
@@ -69,5 +71,29 @@ body,html{
     text-shadow: 2px 1px 0px rgb(162, 162, 162);
     font-weight: bold;
     font-size: 32px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
+#message{
+    margin-left: 335px;
+    color: rgb(0, 0, 0);
+    font-size:25px;
+}
+.back {
+    position: absolute;
+    border-radius: 15px;
+    bottom: -30px;
+    right: 20px;
+    width: 160px;
+    height: 40px;
+    background-color: #C3002F;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+  }
+.back:hover { /*เมื่อเอาเมาส์จ่อปุ่ม*/
+    background-color: #ae062d; /* สีปุ่ม เหลืองเข้มเข้ม */
+ }
+ .back:active { /*เมื่อเอาเมาส์กดปุ่ม*/
+    background-color: #6c071f;/* สีปุ่ม เหลืองเข้มกว่าเข้มสุด */
+ }

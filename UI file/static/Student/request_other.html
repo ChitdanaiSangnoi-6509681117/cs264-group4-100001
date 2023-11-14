@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--add CSS file-->
-    <link href="style_request_other.css" rel="stylesheet"/>
+    <link href="Style/style_request_other.css" rel="stylesheet"/>
 
     <!--font thai-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,8 +34,6 @@
     <button class=" button_leftside" id="submit_a_complaint" type="button" type="button"onclick="window.location.href='Main_request.html'">ยื่นคำร้อง</button><br>
     <button class=" button_leftside" id="appointment_of_advisor" type="button">การนัดหมายอาจารย์ที่ปรึกษา</button><br>
     <button class=" button_leftside" id="pay_a_fine" type="button">ชำระค่าปรับ</button><br>
-
-    <button class="button_leftside" id="log_out" type="button">ออกจากระบบ</button>
 </nav>
 <!--Body of web page-->
 <nav class="body">
@@ -54,51 +52,49 @@
                 </div>
                 <div class="col d-flex justify-content-end">
                     <div class="d-grid gap-2 d-md-block">
-                        <button class="button_down" class="btn btn-primary" type="button" onclick="goToHomePage()">กลับสู่หน้าแรก</button></button>
-                        <!--ถ้าจะเอาไปหลอกอาจารย์ให้เอาคอมเมนต์บรรทัดนี้ออก-->
-                        <!--<button class="button_down" class="btn btn-primary" type="button" onclick="window.location.href='request_submission.html'">ยืนยันการส่งคำร้อง</button>-->
-                        <button class="button_down" class="btn btn-primary" type="button" onclick="submitForm()">ยืนยันการส่งคำร้อง</button>
+                        <button class="btn btn-primary button_down" type="button" onclick="goToHomePage()">กลับสู่หน้าแรก</button></button>
+                        <button class="btn btn-primary button_down" type="button" onclick="submitForm()">ยืนยันการส่งคำร้อง</button>
                     </div>
                 </div>
             </div>
         </form>
-</nav></div>
+    </div>
+</nav>
 </body>
 </html>
-<script>
+<script defer>
     function goToHomePage() {
        var isConfirmed = confirm("คุณแน่ใจหรือว่าต้องการกลับสู่หน้าแรก? การกรอกข้อมูลในแบบฟอร์มนี้จะถูกลบทิ้ง");
        if (isConfirmed) {
-           window.location.href = 'index.html';
+           window.location.href = 'student_welcome.html';
        }
    }
     function submitForm() {
-    var reason = document.getElementById("reason").value;
+        var reason = document.getElementById("reason").value;
 
-    if (reason===""){
-        document.getElementById("reasonError").innerText = "กรุณาระบุเหตุผล";
-        return;
-    }
-    else{
-        document.getElementById("reasonError").innerText = "";
-    }
-
-    //var data = {reason};
-    var jsonData = JSON.parse(localStorage.getItem('jsonData'));
-    var data = { ...jsonData, reason };
-    mergedData = JSON.stringify(data);
-
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", "/api/requestForm", true);
-    xhr.setRequestHeader("Content-Type", "application/json;charset=utf-8");
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && (xhr.status === 200 || xhr.status === 201)) {
-            console.log("Data sent successfully");
-            window.location.href = 'save_complete.html';
-        } else if (xhr.readyState === 4 && (xhr.status !== 200 && xhr.status !== 201)) {
-            console.error("An error occurred sending data.");
+        if (reason===""){
+            document.getElementById("reasonError").innerText = "กรุณาระบุเหตุผล";
+            return;
         }
-    }//function xhr
-    xhr.send(mergedData);
-}
+        else{
+            document.getElementById("reasonError").innerText = "";
+        }
+        var type = "other";
+        var jsonData = JSON.parse(localStorage.getItem('jsonData'));
+        var data = { ...jsonData, reason,type};
+        mergedData = JSON.stringify(data);
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "/api/requestForm", true);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=utf-8");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && (xhr.status === 200 || xhr.status === 201)) {
+                console.log("Data sent successfully");
+                window.location.href='request_submission.html';
+            } else if (xhr.readyState === 4 && (xhr.status !== 200 && xhr.status !== 201)) {
+                console.error("An error occurred sending data.");
+            }
+        }//function xhr
+        xhr.send(mergedData);
+        }
 </script>

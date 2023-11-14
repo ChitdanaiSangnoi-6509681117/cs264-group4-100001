@@ -11,7 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--add CSS file-->
-    <link href="styleTeacher.css" rel="stylesheet"/>
+    <link href="style/styleTeacher.css" rel="stylesheet"/>
+
 
     <!--font thai-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,16 +29,17 @@
 </nav>
 <!--left sidebar-->
 <nav id="leftSidebar" class="h-100 d-inline-block" >
-
     <button class=" button_leftside"  id="teacher_personal_information" type="button">ประวัติอาจารย์</button><br>
-    <button class=" button_leftside"  id="teacher_notifications" type="button">การแจ้งเตือน</button><br>
+    <button class=" button_leftside"  onclick="window.location.href='notice.html'" id="teacher_notifications" type="button">การแจ้งเตือน</button><br>
     <button class=" button_leftside" onclick="window.location.href='teacher_appointment.html'" id="appointment_of_student" type="button">การนัดหมายนักศึกษาในที่ปรึกษา</button><br>
 
     <button class="button_leftside" id="log_out" type="button" style="margin-top: 207px;">ออกจากระบบ</button>
 </nav>
 <!--Body of web page-->
 <nav class="body">
-    <label id="headBody">ยินดีต้อนรับ</label>
+    <label id="headBody">การนัดหมายนักศึกษาในที่ปรึกษา</label><br>
+    <label id="message">บันทึกข้อมูลสำเร็จ</label>
+    <button class="back" onclick="window.location.href='index.html'">กลับสู่หน้าแรก</button>
 </nav>
 </body>
 </html>

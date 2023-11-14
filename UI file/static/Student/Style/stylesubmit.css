@@ -1,15 +1,12 @@
-
 /*----------set all element-------------*/
 * {
     box-sizing: border-box;
     font-family: 'Prompt', sans-serif;
 }
-
 /*----------font thai-------------*/
 @import url('https://fonts.googleapis.com/css2?family=Prompt&family=Roboto&display=swap');
-
 /*----------ตั้งค่าหน้าเว็บ-------------*/
-html,body{
+body,html{
     background-color: #ffffff; /* สีพื้นหลังขาว*/
     color: #333; /* ตัวอักษรสีดำ*/
     width: 100%;
@@ -24,15 +21,13 @@ html,body{
     text-shadow: 2px 1px 0px rgb(162, 162, 162); /* เงาตัวอักษร */
     font-size: 24px;
 }
-
 /*----------แถบข้างซ้าย ปุ่มเลือก-------------*/
 #leftSidebar{
     background-color: #DB6273; /* สีพื้นหลัง แดงอ่อน*/
-    color: #333;
+    color: #000000;
     width: 220px;
     position: absolute;
 }
-
 /* ------------------ปุ่มข้างซ้าย--------------------*/
 .button_leftside{
     background-color: #FFD13F; /* สีพื้นหลัง สีเหลืองมธ*/
@@ -56,18 +51,19 @@ html,body{
     background-color: #fdcc2a;/* สีปุ่ม เหลืองเข้มกว่าเข้มสุด */
  }
 /* -------------------------------------------------*/
-/*ปุ่มประวัติอาจารย์ เว้นลงมาจากขอบบน*/
-#teacher_personal_information{
-    margin-top: 200px;
+/*ปุ่มประวัตินักศึกษา เว้นลงมาจากขอบบน*/
+#student_personal_information{
+    margin-top: 150px;
 }
 /*ปุ่มย้อนกลับ ให้ห่างจากปุ่มอื่น*/
 #back{
-    margin-top: 150px;
+    margin-top: 90px;
 }
 /*ข้อมูลที่อยู่ในพื้นหลังสีขาว*/
 .body{
     margin-top: 50px;
 }
+
 /*หัวเรื่องในส่วนของ body */
 #headBody{
     margin-left: 300px;
@@ -75,4 +71,29 @@ html,body{
     text-shadow: 2px 1px 0px rgb(162, 162, 162);
     font-weight: bold;
     font-size: 32px;
+    margin-bottom: 20px;
 }
+#message{
+    margin-left: 335px;
+    color: rgb(0, 0, 0);
+    font-size:25px;
+}
+.back {
+    position: absolute;
+    border-radius: 15px;
+    bottom: -30px;
+    right: 20px;
+    width: 160px;
+    height: 40px;
+    background-color: #C3002F;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+  }
+.back:hover { /*เมื่อเอาเมาส์จ่อปุ่ม*/
+    background-color: #ae062d;
+ }
+ .back:active { /*เมื่อเอาเมาส์กดปุ่ม*/
+    background-color: #6c071f;
+ }

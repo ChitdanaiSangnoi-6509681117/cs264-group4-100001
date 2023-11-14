@@ -10,8 +10,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="styleTeacher.css" rel="stylesheet"/>
-    <link href="style_U07.css" rel="stylesheet"/>
+    <link href="style/styleTeacher.css" rel="stylesheet"/>
+    <link href="style/style_U07.css" rel="stylesheet"/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,8 +30,7 @@
     <button class=" button_leftside" id="teacher_notifications" type="button">การแจ้งเตือน</button><br>
     <button class=" button_leftside" id="appointment_of_student" type="button">การนัดหมายนักศึกษาในที่ปรึกษา</button><br>
 
-    <button class="button_leftside" id="back" onclick="window.location.href='teacher_welcome.html'" type="button">ย้อนกลับ</button>
-    <button class="button_leftside" id="log_out" type="button">ออกจากระบบ</button>
+    <button class="button_leftside" id="back" onclick="window.location.href='index.html'" type="button">ย้อนกลับ</button>
 </nav>
 <nav class="body">
     <label id="headBody" >การนัดหมายนักศึกษาในที่ปรึกษา</label>
@@ -170,15 +169,14 @@ function validateForm() {
                 const xhr = new XMLHttpRequest();
                 xhr.open("POST", "/api/teacherAppointment", true);
                 xhr.setRequestHeader("Content-Type", "application/json;charset=utf-8");
-                /*xhr.onreadystatechange = function () {
-                    if (xhr.readyState === 4 && xhr.status === 201) {
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && (xhr.status === 200 || xhr.status === 201)) {
                         console.log("Data sent successfully");
-                    } else if (xhr.readyState === 4 && xhr.status !== 201) {
+                        window.location.href='teacher_appointment_save.html';
+                    } else if (xhr.readyState === 4 && (xhr.status !== 200 && xhr.status !== 201)) {
                         console.error("An error occurred sending data.");
                     }
-
                 }//function xhr
-                */
                 xhr.send(jsonData);
             }
 </script>

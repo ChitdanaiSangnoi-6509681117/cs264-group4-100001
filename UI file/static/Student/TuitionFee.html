@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Add CSS file -->
-    <link href="style_TuitionFee.css" rel="stylesheet"/>
+    <link href="Style/style_TuitionFee.css" rel="stylesheet"/>
 
     <!-- Font Thai -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +34,6 @@
     <button class=" button_leftside" id="submit_a_complaint" type="button" type="button" onclick="window.location.href='Main_request.html'">ยื่นคำร้อง</button><br>
     <button class=" button_leftside" id="appointment_of_advisor" type="button">การนัดหมายอาจารย์ที่ปรึกษา</button><br>
     <button class=" button_leftside" id="pay_a_fine" type="button">ชำระค่าปรับ</button><br>
-    <button class="button_leftside" id="log_out" type="button">ออกจากระบบ</button>
 </nav>
 <!-- Body of web page -->
 <nav class="body">
@@ -116,7 +115,7 @@
     function goToHomePage() {
         var isConfirmed = confirm("คุณแน่ใจหรือว่าต้องการกลับสู่หน้าแรก? การกรอกข้อมูลในแบบฟอร์มนี้จะถูกลบทิ้ง");
         if (isConfirmed) {
-            window.location.href = 'index.html';
+            window.location.href = 'student_welcome.html';
         }
     }
 
@@ -152,10 +151,9 @@
         if (term === " " || paidMonth === " " || paidYear === " ") {
         return;
     }
-
-    //var data = { term,year, paidMonth, paidYear };
+    var type = "tuitionFee";
     var jsonData = JSON.parse(localStorage.getItem('jsonData'));
-    var data = { ...jsonData, term,year, paidMonth, paidYear };
+    var data = { ...jsonData, term,year, paidMonth, paidYear, type };
     mergedData = JSON.stringify(data);
 
     const xhr = new XMLHttpRequest();
@@ -164,7 +162,7 @@
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && (xhr.status === 200 || xhr.status === 201)) {
             console.log("Data sent successfully");
-            window.location.href = 'save_complete.html';
+            window.location.href='request_submission.html';
         } else if (xhr.readyState === 4 && (xhr.status !== 200 && xhr.status !== 201)) {
             console.error("An error occurred sending data.");
         }
