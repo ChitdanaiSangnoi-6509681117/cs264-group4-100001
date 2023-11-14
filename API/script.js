@@ -31,10 +31,11 @@ function login() {
     .then(data => {
         if (data.status === true) {
             console.log(JSON.stringify(data));
-            alert('Authentication successful 4!');
+            alert('Authentication successful!');
             if (data.type == 'student') {
                 console.log('Save Student data ' + data.username);
                 saveStudentData(reorderJSON(data));
+                //nextPage();
             }
         } else {
             alert('Authentication failed. Please check your credentials.');
@@ -71,20 +72,22 @@ function saveStudentData(requestData) {
     })
     .then(response => {
         if (response.status === 200) {
-            return response.text();
+            //console.log(typeof requestData);
+            return requestData; // Parse response as JSON
         } else {
             throw new Error('Non-200 status code: ' + response.status);
         }
     })
-    .then(text => {
-        console.log('Response Text:', text); // Log the response text for debugging
-        return JSON.stringify(text);
-    })
     .then(data => {
-        console.log(data);
-        console.log("FUCK YOU");
+        console.log('Response Data:', data); // Log the response data for debugging
+        localStorage.setItem('studentData', JSON.stringify(data)); // Save data to localStorage
+        nextPage();
     })
     .catch(error => {
         console.error('API request error:', error);
     });
+}
+
+function nextPage(){
+    window.location.href = 'student_welcome.html';
 }

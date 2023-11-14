@@ -1,24 +1,27 @@
 package th.ac.tu.cs.services.student;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class StudentService {
-    public List<Student> getStudent(){
-        return List.of(
-                new Student(
-                        "10",
-                        "ปกติ",
-                        "6509681083",
-                        "Mr",
-                        "กฤชประพัตธ์ เลิศประเสริฐภากร",
-                        "krichpapath lertprasertphakorn",
-                        "krichpapath.ler@dome.tu.ac.th",
-                        "ภาควิชาวิทยาการคอมพิวเตอร์",
-                        "คณะวิทยาศาสตร์และเทคโนโลยี"
-                )
-        );
+    private Student currentStudent; // Remove @Autowired here
+
+    // Constructor injection or setter method to set the currentStudent
+
+    public String getStudent() {
+        return currentStudent.toString();
+    }
+
+    public void setStudent(Student student){
+        currentStudent = student;
+    }
+
+    public String getStudentNameTH() {
+        return currentStudent.getDisplayname_th();
     }
 }

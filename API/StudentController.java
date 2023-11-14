@@ -18,13 +18,19 @@ public class StudentController {
     }
 
     @GetMapping
-    public List<Student> getStudent(){
+    public String getStudent(){
         return  studentService.getStudent();
+    }
+
+    @GetMapping("/getStudentNameTH")
+    public String getStudentNameTH() {
+        return studentService.getStudentNameTH();
     }
 
     @PostMapping("/saveStudent")
     public void save(@RequestBody Student student) {
         studentRepository.saveStudent(student);
+        studentService.setStudent(student);
     }
 
     @RequestMapping("/findStudentId")
