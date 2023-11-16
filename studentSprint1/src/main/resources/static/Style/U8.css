@@ -1,0 +1,152 @@
+/*----------table--------------------*/
+table {
+    margin-top: 50px;
+    margin-left: 300px;
+    width: 70%;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+  }
+th{
+    background-color: #FFD13F;
+    padding: 5px;
+    text-align: center;
+    border: 2px solid #ffffff;
+}
+td{
+    background-color: #D9D9D9;
+    border: 2px solid #ffffff;
+}
+/*-------Head table---------*/
+/*กล่องสีขาวที่เป็นหัวข้อตาราง*/
+.box{
+    background-color: #ffffff; /* สีพื้นหลัง สีเหลืองมธ*/
+    text-align: center;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    margin: 5px;
+}
+/*แถว ใส่ค่าวันที่*/
+input[type="date"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+input[type="date"]:focus {
+    border: 1px solid #007bff;
+    outline: none;
+}
+/*---------*/
+
+/*แถว ใส่ช่วงเวลา*/
+input[type="time"] {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    width: 35%;
+}
+input[type="time"]:focus {
+    border: 1px solid #007bff;
+    outline: none;
+}
+.time{
+    text-align: center;
+}
+/*แถว ใส่รูปแบบของการนัดหมาย*/
+.type_appointment{
+    font-size: 20px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    outline: none;
+    box-sizing: border-box;
+}
+.type_appointment_label{
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+/*js type appointment*/
+.input-text {
+    margin: 10px 0;
+    border: 1px solid #fff;
+    border-radius: 10px;
+}
+/*ขนาดของตัวอักษรในตาราง*/
+.textTable{
+    font-size: 20px;
+    font-weight: bold;
+}
+.submit_button {
+    display: inline-block;
+     padding: 10px 20px;
+     background-color: #C3002F; /* สีปุ่ม แดงมธ */
+     color: #ffffff; /*สีฟ้อน ขาว*/
+     text-decoration: none;
+     border-radius: 10px;
+     border : none;
+     cursor: pointer;
+     transition: background-color 0.3s;
+     position : relative;
+     width: 150px;
+     height: 50px;
+     font-size :20px;
+     font-weight: bold;
+     left : 750px;
+     margin-bottom : 50px;
+     top : 30px;
+}
+.submit-button:hover {
+   background-color: #b00029; /* สีปุ่ม แดงอ่อนเข้ม */
+}
+.submit-button:active {
+   background-color: #9c0125;/* สีปุ่ม แดงอ่อนเข้มสุด */
+}
+
+.radio{
+    text-align: center;
+    vertical-align: middle;
+}
+.petition_button {
+    display: inline-block;
+     padding: 10px 20px;
+     background-color: #C3002F; /* สีปุ่ม แดงมธ */
+     color: #ffffff; /*สีฟ้อน ขาว*/
+     text-decoration: none;
+     border-radius: 10px;
+     border : none;
+     cursor: pointer;
+     transition: background-color 0.3s;
+     position : relative;
+     width: 300px;
+     height: 50px;
+     font-size :20px;
+     font-weight: bold;
+     font-size: 15px;
+     left : 750px;
+     margin-bottom : 50px;
+     top : 30px;
+}
+.submit-button:hover {
+   background-color: #b00029; /* สีปุ่ม แดงอ่อนเข้ม */
+}
+.submit-button:active {
+   background-color: #9c0125;/* สีปุ่ม แดงอ่อนเข้มสุด */
+}
+.data{
+    height: 70px;
+    font-size : 18px;
+    text-align : center;
+    background-color: #f8f9fa; /* Background color */
+      color: #333; /* Text color */
+      transition: background-color 0.3s ease;
+}
+input[type="radio"]{
+    transform: scale(1.5);
+}
