@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" style="font-family: 'Noto Sans Thai', sans-serif;">
+    <!--Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Latest compiled JavaScript-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--add CSS file-->
+    <link href="style/stylescheck.css" rel="stylesheet"/>
+
+    <!--font thai-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt&family=Roboto&display=swap" rel="stylesheet">
+
+    <title>สำนักทะเบียน</title>
+</head>
+<body>
+<!--Head of web page-->
+<nav id="topSidebar" class="w-100 p-1">
+    <img src="Emblem_of_Thammasat_University.png" width="50" height="50" />
+    <label>THAMMASAT UNIVERSITY</label>
+</nav>
+<!--left sidebar-->
+<nav id="leftSidebar" class="h-100 d-inline-block" >
+    <button class=" button_leftside"  id="teacher_personal_information" type="button">ประวัติอาจารย์</button><br>
+    <button class=" button_leftside"  id="teacher_notifications" type="button">การแจ้งเตือน</button><br>
+    <button class=" button_leftside"  id="appointment_of_student" type="button">การนัดหมายนักศึกษาในที่ปรึกษา</button><br >
+
+    <button class="button_leftside" id="back" type="button">ย้อนกลับ</button>
+</nav>
+<!--Body of web page-->
+<nav class="body">
+    <div class="container-fluid bg-white">
+        <div class="row">
+            <div class="col-2">
+                <button type="button" class="button_down">ไฟล์คำร้องนักศึกษา</button>
+            </div>
+        </div>
+        <label id="headBody">ความคิดเห็นของอาจารย์</label>
+        <form onsubmit="this.reset(); return false">
+            <br>
+            <div class="form-outline w-50 mb-4">
+                <textarea id="recommend" name="recommend" rows="10" cols="100" class="form-control" style="resize:none; border-radius:20px; background-color:#D9D9D9;" required></textarea>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col-2">
+                    <input class="form-check-input" type="radio" name="checkaccept" id="checkaccept" required>
+                    <label class="form-check-label" for="unaccept">อนุมัติ</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <input class="form-check-input" type="radio" name="checkaccept" id="checkaccept"required>
+                    <label class="form-check-label" for="unaccept">ไม่อนุมัติ</label>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+
+                    <button type="button" class="button_down" onclick="window.location.href='submitpage.html'">ส่งข้อมูล</button>
+                </div>
+
+
+        </form>
+</nav></div>
+</body>
+</html>
