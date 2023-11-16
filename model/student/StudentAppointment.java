@@ -1,7 +1,5 @@
 package cs.tu.studentSprint1.Model;
 
-import cs.tu.studentSprint1.Repository.StudentAppointmentRepository;
-
 public class StudentAppointment {
     private String reason;
     private String day1;
