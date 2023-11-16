@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" style="font-family: 'Noto Sans Thai', sans-serif;">
+    <!--Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Latest compiled JavaScript-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--add CSS file-->
+    <link href="Style/style_fileAttachment.css" rel="stylesheet"/>
+
+    <title>แนบเอกสาร</title>
+    <link href="Style/style_fileAttachment.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav id="topSidebar" class="w-100 p-1">
+    <img src="Emblem_of_Thammasat_University.png" width="50" height="50" />
+    <label> THAMMASAT UNIVERSITY</label>
+</nav>
+<nav id="leftSidebar" class="h-100 d-inline-block">
+    <button class=" button_leftside" id="student_personal_information" type="button">ประวัตินักศึกษา</button><br>
+    <button class=" button_leftside" id="student_notifications" type="button">การแจ้งเตือน</button><br>
+    <button class=" button_leftside" id="track_request_status" type="button">ติดตามสถานะคำร้อง</button><br>
+    <button class=" button_leftside" id="submit_a_complaint" type="button"onclick="window.location.href='Main_request.html'">ยื่นคำร้อง</button><br>
+    <button class=" button_leftside" id="appointment_of_advisor" type="button">การนัดหมายอาจารย์ที่ปรึกษา</button><br>
+    <button class=" button_leftside" id="pay_a_fine" type="button">ชำระค่าปรับ</button><br>
+</nav>
+<form class="body">
+    <h1 class="body">แนบเอกสาร</h1>
+    <p>กรุณารวมไฟล์เอกสารที่จำเป็น เป็นไฟล์ pdf ไฟล์ที่มีขนาดไม่เกิน 10 MB (สามารถเลือกได้หลายไฟล์)</p>
+
+    <label for="userFiles">เลือกไฟล์ (ไม่เกิน 10 MB ต่อไฟล์): </label>
+    <input type="file" id="userFiles" name="userFiles" multiple><br>
+    <label id="errorFiles" style="color: red"></label>
+
+    <div class="col d-flex justify-content-end">
+        <div class="d-grid gap-2 d-md-block">
+            <button class="btn btn-primary button_down1" type="button" onclick="goToHomePage()">กลับสู่หน้าแรก</button></button>
+            <button class="btn btn-primary button_down2" type="button" onclick="goBack()">ย้อนกลับ</button>
+            <button id="submitButton" class="btn btn-primary " type="button" >ยืนยันการแนบไฟล์</button>
+        </div>
+
+    </div>
+</form>
+</body>
+</html>
+
+<script>
+    var inputFile = document.getElementById("userFiles");
+ var submitButton = document.getElementById("submitButton");
+ var fileData = [];
+
+ function goToHomePage() {
+     var isConfirmed = confirm("คุณแน่ใจหรือว่าต้องการกลับสู่หน้าแรก? การกรอกข้อมูลในแบบฟอร์มนี้จะถูกลบทิ้ง");
+     if (isConfirmed) {
+         window.location.href = 'student_welcome.html';
+     }
+ }
+
+ function goBack() {
+     window.history.back();
+ }
+
+ submitButton.addEventListener('click', function () {
+     var limitSize = 10;
+     var files = inputFile.files;
+     var errorMessages = [];
+
+     if (files.length === 0) {
+         alert("กรุณาเลือกไฟล์ก่อนยืนยันการแนบไฟล์");
+         return;
+     }
+
+     for (var i = 0; i < files.length; i++) {
+         var fileSize = files[i].size;
+         var fileSizeInMB = fileSize / (1024 * 1024);
+
+         if (fileSizeInMB > limitSize) {
+             console.log("ERROR: user file " + (i + 1) + " is too big");
+             errorMessages.push("ไฟล์ที่ " + (i + 1) + " ของคุณมีขนาดเกินกว่า 10 MB!!");
+         } else {
+             var fileObject = {
+                 name: files[i].name,
+                 size: fileSizeInMB + ' MB'
+             };
+
+             fileData.push(fileObject);
+         }
+     }
+
+     if (errorMessages.length > 0) {
+         document.getElementById("errorFiles").innerHTML = errorMessages.join("<br>");
+     } else {
+         document.getElementById("errorFiles").innerHTML = "";
+
+         var jsonData = {
+             files: fileData
+         };
+
+         localStorage.setItem('jsonData', JSON.stringify(jsonData));
+         alert("การแนบไฟล์เสร็จสิ้น");
+         window.history.back();
+     }
+ });
+
+</script>
+</html>
