@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" style="font-family: 'Noto Sans Thai', sans-serif;">
+    <!--Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Latest compiled JavaScript-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--add CSS file-->
+    <link href="Style/style_Withdrawal.css" rel="stylesheet"/>
+
+    <!--font thai-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt&family=Roboto&display=swap" rel="stylesheet">
+
+    <title>สำนักทะเบียน</title>
+</head>
+<body>
+<!--Head of web page-->
+<nav id="topSidebar" class="w-100 p-1">
+    <img src="Emblem_of_Thammasat_University.png" width="50" height="50" />
+    <label>THAMMASAT UNIVERSITY</label>
+</nav>
+<!--left sidebar-->
+<nav id="leftSidebar" class="h-100 d-inline-block">
+    <button class=" button_leftside" id="student_personal_information" type="button" onclick="window.location.href='Personal_information.html'">ประวัตินักศึกษา</button><br>
+    <button class=" button_leftside" id="student_notifications" type="button">การแจ้งเตือน</button><br>
+    <button class=" button_leftside" id="track_request_status" type="button">ติดตามสถานะคำร้อง</button><br>
+    <button class=" button_leftside" id="submit_a_complaint" type="button" type="button"onclick="window.location.href='Main_request.html'">ยื่นคำร้อง</button><br>
+    <button class=" button_leftside" id="appointment_of_advisor" type="button">การนัดหมายอาจารย์ที่ปรึกษา</button><br>
+    <button class=" button_leftside" id="pay_a_fine" type="button">ชำระค่าปรับ</button><br>
+</nav>
+<!--Body of web page-->
+<nav class="body">
+    <div class="container-fluid bg-white">
+        <label id="headBody">คำร้องขอเพิ่ม-ถอนรายวิชาล่าช้า</label>
+        <form onsubmit="this.reset(); return false">
+            <div class="row">
+                <div class="col-2">
+                    <br>
+                    <label for="term">ภาคเรียนที่</label>
+                    <select id="term" name="term" class="form-control mb-2" style="background-color:#D9D9D9;" required>
+                        <option value=" "> </option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="Summer">Summer</option>
+                    </select>
+                    <div id="termError" style="color: red;"></div>
+                </div>
+                <div class="col-2">
+                    <br>
+                    <label for="year">รหัสวิชา</label>
+                    <input type="text" id="courseNumber" name="CourseNumber" class="form-control mb-2" style="background-color:#D9D9D9;" required>
+                    <div id="courseNumberError" style="color: red;"></div>
+                </div>
+                <div class="col-2">
+                    <br>
+                    <label for="year">ปีการศึกษา</label>
+                    <select id="year" name="year" class="form-control mb-2" style="background-color:#D9D9D9;" required>
+                        <option value="2566">2566</option>
+                    </select>
+                </div>
+            </div>
+            <form onsubmit="this.reset(); return false">
+                <div class="row">
+                    <div class="col-2">
+                        <br>
+                        <label for="term">ชื่อวิชา</label>
+                        <input type="text" id="course" name="Course" class="form-control mb-2" style="background-color:#D9D9D9;" required>
+                        <div id="courseError" style="color: red;"></div>
+                    </div>
+                    <div class="col-2">
+                        <br>
+                        <label for="section">Section</label>
+                        <input type="text" id="section" name="year" class="form-control mb-2" style="background-color:#D9D9D9;" required>
+                        <div id="sectionError" style="color: red;"></div>
+                    </div>
+                    <div class="col-2">
+                        <br>
+                        <label for="add-withdraw">เพิ่ม-ถอน</label>
+                        <select id="add-withdraw" name="year" class="form-control mb-2" style="background-color:#D9D9D9;" required>
+                            <option value=" "> </option>
+                            <option value="add">เพิ่ม</option>
+                            <option value="withdraw">ถอน</option>
+                        </select>
+                        <div id="add-withdrawError" style="color: red;"></div>
+                    </div>
+                </div>
+                <br>
+                <div class="form-outline w-400 mb-4">
+                    <label for="reason">เหตุผล</label>
+                    <textarea id="reason" name="reason" rows="9" class="form-control" style="resize:none; border-radius:20px; background-color:#D9D9D9;" required></textarea>
+                    <br>    <div id="reasonError" style="color: red;"></div>
+                    <div class="row">
+                        <div class="col">
+                            <button type="button" class="button_down" onclick="window.location.href='fileAttachment.html'">แนบไฟล์เพิ่มเติม</button>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <div class="d-grid gap-2 d-md-block">
+                                <button class="button_down" class="btn btn-primary" type="button" onclick="goToHomePage()">กลับสู่หน้าแรก</button></button>
+                                <button class="button_down" class="btn btn-primary" type="button" onclick="submitForm()">ยืนยันการส่งคำร้อง</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </form>
+    </div>
+</nav>
+</body>
+</html>
+<script>
+    function goToHomePage() {
+       var isConfirmed = confirm("คุณแน่ใจหรือว่าต้องการกลับสู่หน้าแรก? การกรอกข้อมูลในแบบฟอร์มนี้จะถูกลบทิ้ง");
+       if (isConfirmed) {
+           window.location.href = 'student_welcome.html';
+       }
+   }
+   var jsonData = JSON.parse(localStorage.getItem('jsonData'));
+
+   function submitForm() {
+   var term = document.getElementById("term").value;
+   var courseNumber= document.getElementById("courseNumber").value;
+   var course= document.getElementById("course").value;
+   var section = document.getElementById("section").value;
+   var add_withdraw = document.getElementById("add-withdraw").value;
+   var reason = document.getElementById("reason").value;
+   var year = document.getElementById("year").value;
+
+   if (term === " ") {
+       document.getElementById("termError").innerText = "กรุณาเลือกภาคเรียน";
+   } else {
+       document.getElementById("termError").innerText = " ";
+   }
+
+   if (courseNumber===""){
+       document.getElementById("courseNumberError").innerText = "กรุณากรอกรหัสวิชา";
+   }
+   else{
+       document.getElementById("courseNumberError").innerText = "";
+   }
+
+   if (course===""){
+       document.getElementById("courseError").innerText = "กรุณากรอกชื่อรายวิชา";
+   }
+   else{
+       document.getElementById("courseError").innerText = "";
+   }
+
+   if (section===""){
+       document.getElementById("sectionError").innerText = "กรุณากรอก Section";
+   }
+   else if(!/^\d+$/.test(section)||section.length!=6){
+       document.getElementById("sectionError").innerText = "รหัสเซคชั่นต้องเป็นตัวเลข 6 หลักเท่านั้น";
+   }
+   else{
+       document.getElementById("sectionError").innerText = "";
+   }
+
+   if (add_withdraw === " ") {
+       document.getElementById("add-withdrawError").innerText = "กรุณาเลือกถอนหรือเพิ่มรายวิชา";
+   } else {
+       document.getElementById("add-withdrawError").innerText = " ";
+   }
+   if (reason===""){
+       document.getElementById("reasonError").innerText = "กรุณาระบุเหตุผล";
+   }
+   else{
+       document.getElementById("reasonError").innerText = "";
+   }
+
+   if (term === " " || courseNumber === "" || course === "" || section==="" || !/^\d+$/.test(section)||section.length!=6 ||
+       add_withdraw===" " || reason==="") {
+       return;
+   }
+   var type = "withdrawal";
+
+   var data = { ...jsonData, term, course, courseNumber, section, add_withdraw, reason, year,type};
+   mergedData = JSON.stringify(data);
+
+   const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/api/requestForm", true);
+    xhr.setRequestHeader("Content-Type", "application/json;charset=utf-8");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && (xhr.status === 200 || xhr.status === 201)) {
+            console.log("Data sent successfully");
+            window.location.href='request_submission.html';
+        } else if (xhr.readyState === 4 && (xhr.status !== 200 && xhr.status !== 201)) {
+            console.error("An error occurred sending data.");
+        }
+    }//function xhr
+    xhr.send(mergedData);
+}
+
+</script>
