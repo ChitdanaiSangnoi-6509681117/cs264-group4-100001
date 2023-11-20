@@ -163,6 +163,7 @@
         if (xhr.readyState === 4 && (xhr.status === 200 || xhr.status === 201)) {
             console.log("Data sent successfully");
             window.location.href='request_submission.html';
+            localStorage.removeItem('jsonData');
         } else if (xhr.readyState === 4 && (xhr.status !== 200 && xhr.status !== 201)) {
             console.error("An error occurred sending data.");
         }
